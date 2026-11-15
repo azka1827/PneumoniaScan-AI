@@ -7,7 +7,6 @@ import shutil
 shutil.copy("/content/best_pneumonia_resnet18.pth", "/content/drive/MyDrive/best_pneumonia_resnet18.pth")
 
 
-pip install medmnist
 
 from medmnist import PneumoniaMNIST
 
