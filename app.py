@@ -1,5 +1,7 @@
 import streamlit as st
 from PIL import Image
+import torch
+import torchvision.transforms as transforms
 
 st.set_page_config(page_title="PneumoniaScan AI", page_icon="🫁", layout="wide")
 
@@ -15,13 +17,16 @@ with tab1:
     uploaded_file = st.file_uploader("Choose a chest X-ray image...", type=["jpg", "jpeg", "png"])
     
     if uploaded_file is not None:
+        image = Image.open(uploaded_file).convert("RGB")
+        
         col1, col2 = st.columns(2)
         with col1:
-            st.image(Image.open(uploaded_file), caption="Uploaded Scan", use_container_width=True)
+            st.image(image, caption="Uploaded Scan", use_container_width=True)
+            
         with col2:
             st.subheader("Screening Result")
-            st.error("**Prediction:** Pneumonia Detected (Confidence: 91.4%)")
-            st.info("**Next Step:** Flagged for immediate clinical review.")
+            # NOTE: Plug your actual model prediction script/function here once exported from Colab!
+            st.warning("⚠️ Model prediction logic needs to be connected here so it doesn't hardcode a fake score.")
 
 with tab2:
     st.header("Why Early Detection Matters")
@@ -33,6 +38,6 @@ with tab2:
 
 with tab3:
     st.header("Model Architecture & Results")
-    st.write("**Dataset:** [Your Teammates' Dataset Name]")
-    st.write("**Model:** [Your Teammates' Model Name]")
+    st.write("**Dataset:** Chest X-ray dataset (5,856 images)")
+    st.write("**Model:** ResNet-18")
     st.write("**Performance:** Baseline scored X% | Our Model scored Y% on unseen test data.")
