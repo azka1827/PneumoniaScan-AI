@@ -47,7 +47,7 @@ num_features = model.fc.in_features
 model.fc = nn.Linear(num_features, 1) # Changed form 2 to 1 as the CrossEntropy changed to Binary Cross Entropy
 #model = model.to(device) already mentioned later in the training func
 
-Exploring the dataset
+#Exploring the dataset
 
 #print the number of images in each dataset split
 print("Training images:", len(train_dataset))
