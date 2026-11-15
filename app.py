@@ -306,7 +306,7 @@ n_classes = len(info['label'])
 
 info
 
-Back to the model
+#Back to the model
 
 # Loss function and optimization
 criterion = torch.nn.BCEWithLogitsLoss() # measures the difference between a model's predicted probability distribution and the true target labels in classification tasks - qunatifies error
@@ -317,7 +317,7 @@ Optimization of Hyperparameter (like Learning Rate)
 
 #train(model, train_loader, val_loader, criterion, optimizer, num_epochs=5)
 
-Function to Train a Model
+#Function to Train a Model
 
 def train(model, train_loader, val_loader, criterion, optimizer, num_epochs):
   best_val_loss = float('inf')
